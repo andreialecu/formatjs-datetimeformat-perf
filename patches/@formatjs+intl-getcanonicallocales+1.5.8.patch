@@ -1,0 +1,13 @@
+diff --git a/node_modules/@formatjs/intl-getcanonicallocales/src/parser.js b/node_modules/@formatjs/intl-getcanonicallocales/src/parser.js
+index ef60b5f..adbea91 100755
+--- a/node_modules/@formatjs/intl-getcanonicallocales/src/parser.js
++++ b/node_modules/@formatjs/intl-getcanonicallocales/src/parser.js
+@@ -34,7 +34,7 @@ function isUnicodeRegionSubtag(region) {
+ }
+ exports.isUnicodeRegionSubtag = isUnicodeRegionSubtag;
+ function isUnicodeScriptSubtag(script) {
+-    return ALPHA_4.test(script);
++    return script && ALPHA_4.test(script);
+ }
+ exports.isUnicodeScriptSubtag = isUnicodeScriptSubtag;
+ function isUnicodeVariantSubtag(variant) {
