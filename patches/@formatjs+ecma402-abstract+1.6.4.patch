@@ -1,0 +1,30 @@
+diff --git a/node_modules/@formatjs/ecma402-abstract/262.js b/node_modules/@formatjs/ecma402-abstract/262.js
+index 5d5f9d0..4b945d7 100755
+--- a/node_modules/@formatjs/ecma402-abstract/262.js
++++ b/node_modules/@formatjs/ecma402-abstract/262.js
+@@ -179,10 +179,7 @@ exports.WeekDay = WeekDay;
+  * @param y
+  */
+ function DayFromYear(y) {
+-    return (365 * (y - 1970) +
+-        Math.floor((y - 1969) / 4) -
+-        Math.floor((y - 1901) / 100) +
+-        Math.floor((y - 1601) / 400));
++  return Date.UTC(y) / MS_PER_DAY
+ }
+ exports.DayFromYear = DayFromYear;
+ /**
+@@ -198,12 +195,7 @@ exports.TimeFromYear = TimeFromYear;
+  * @param t
+  */
+ function YearFromTime(t) {
+-    var min = Math.ceil(t / MS_PER_DAY / 366);
+-    var y = min;
+-    while (TimeFromYear(y) <= t) {
+-        y++;
+-    }
+-    return y - 1;
++  return new Date(t).getFullYear();
+ }
+ exports.YearFromTime = YearFromTime;
+ function DaysInYear(y) {
